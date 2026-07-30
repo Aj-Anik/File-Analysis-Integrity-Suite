@@ -1,89 +1,242 @@
-# Smart Academic Integrity & File Optimization Suite
+# 📂 File Analysis & Integrity Suite
 
-A desktop application built with **Python 3** and **PyQt6** that combines four practical tools
-into a single, polished GUI program, built specifically to demonstrate Data Structures and
-Algorithms (DSA) concepts in real, working software rather than isolated exercises.
+<p align="center">
+  <b>A modern Python desktop application demonstrating real-world applications of Data Structures & Algorithms.</b>
+  <br><br>
+  Built with <b>PyQt6</b>, the application provides plagiarism detection, Huffman-based file compression, duplicate file detection, history management, and PDF report generation in a clean, modern interface.
+</p>
 
-## Modules
+---
 
-1. **Plagiarism Detector** — compare two texts (typed or uploaded as `.txt` / `.docx` / `.pdf`)
-   and get a similarity score, common/unique keywords, and matching phrases.
-2. **File Compression & Decompression** — compress any file with Huffman Coding into a custom
-   `.huf` container, and decompress it back losslessly.
-3. **Duplicate File Finder** — recursively scan a folder and find duplicate files using
-   SHA-256 content hashing, with an option to delete selected duplicates.
-4. **History & Reports** — every operation above can be saved; browse, search, sort, delete
-   (with undo), and re-export any past report as a PDF.
-5. **About** — project description, technologies, and DSA concepts used.
+## ✨ Features
 
-## Setup
+### 📝 Plagiarism Detector
+- Compare text manually or upload documents.
+- Supports **TXT, DOCX, and PDF** files.
+- Calculates document similarity using:
+  - Jaccard Similarity
+  - Rabin-Karp Algorithm
+  - Knuth-Morris-Pratt (KMP)
+- Highlights similarity percentage.
+- Generates detailed reports.
 
-Requires Python 3.9+.
+---
+
+### 📦 File Compression
+- Compress files using **Huffman Coding**.
+- Decompress previously compressed `.huf` files.
+- Reduces file size efficiently.
+- Drag & Drop file support.
+
+---
+
+### 📁 Duplicate File Finder
+- Scan folders recursively.
+- Detect duplicate files using **SHA-256 hashing**.
+- Organize duplicates into groups.
+- Fast lookup using **Hash Tables**.
+
+---
+
+### 📊 History & Reports
+- Stores all operations automatically.
+- Search previous reports.
+- Filter by operation type.
+- Export reports as PDF.
+- Undo deleted history records.
+
+---
+
+### 🎨 Modern User Interface
+- Dark & Light mode.
+- Responsive desktop layout.
+- Clean navigation sidebar.
+- User-friendly workflow.
+
+---
+
+# 📸 Screenshots
+
+## Main Interface
+
+![Main Interface](screenshots/main-dark.png)
+
+---
+
+## Plagiarism Detector
+
+### Dark Mode
+
+![Plagiarism Dark](screenshots/plagiarism-dark.png)
+
+### Light Mode
+
+![Plagiarism Light](screenshots/plagiarism-light.png)
+
+---
+
+## File Compression
+
+![Compression](screenshots/compression.png)
+
+---
+
+## Duplicate File Finder
+
+![Duplicate Finder](screenshots/duplicate-finder.png)
+
+---
+
+## History & Reports
+
+![History](screenshots/history.png)
+
+---
+
+## About Page
+
+![About](screenshots/about.png)
+
+---
+
+# 🧠 Data Structures Used
+
+| Data Structure | Purpose |
+|---------------|---------|
+| Arrays / Lists | Token storage and file records |
+| Hash Tables | Duplicate file detection and frequency tables |
+| Sets | Unique keyword extraction and Jaccard Similarity |
+| Stack | Undo delete functionality |
+| Queue (Deque) | Recent activity management |
+| Priority Queue (Heap) | Huffman Tree construction |
+| Binary Tree | Huffman Coding Tree |
+
+---
+
+# ⚡ Algorithms Implemented
+
+| Algorithm | Application |
+|-----------|-------------|
+| Rabin-Karp | String matching |
+| Knuth-Morris-Pratt (KMP) | Pattern searching |
+| Linear Search | Record lookup |
+| Binary Search | Sorted data searching |
+| Merge Sort | Sorting reports |
+| Quick Sort | Sorting datasets |
+| Huffman Coding | File Compression |
+| SHA-256 Hashing | Duplicate file detection |
+
+---
+
+# 🛠 Technologies Used
+
+| Technology | Purpose |
+|------------|---------|
+| Python 3.x | Core programming language |
+| PyQt6 | Desktop GUI |
+| python-docx | Read DOCX documents |
+| pypdf | Read PDF documents |
+| reportlab | Generate PDF reports |
+| hashlib | SHA-256 hashing |
+| JSON | Persistent storage |
+
+---
+
+# 📁 Project Structure
+
+```text
+File-Analysis-Integrity-Suite/
+│
+├── assets/
+├── reports/
+├── history/
+├── compression/
+├── plagiarism/
+├── duplicate_finder/
+├── ui/
+├── main.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+# 🚀 Installation
+
+Clone the repository
 
 ```bash
-cd project
+git clone https://github.com/yourusername/File-Analysis-Integrity-Suite.git
+```
+
+Move into the project
+
+```bash
+cd File-Analysis-Integrity-Suite
+```
+
+Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+Run the application
+
+```bash
 python main.py
 ```
 
-If `pip install` fails on PyQt6 for your platform, try upgrading pip first:
-`python -m pip install --upgrade pip`, then retry.
+---
 
-## Project Structure
+# 📚 DSA Concepts Demonstrated
 
-```
-project/
-├── main.py                      # Entry point
-├── requirements.txt
-├── ui/                          # PyQt6 GUI layer (one file per module)
-│   ├── main_window.py           # Sidebar nav + page switching + theming
-│   ├── plagiarism_ui.py
-│   ├── compression_ui.py
-│   ├── duplicate_ui.py
-│   ├── history_ui.py
-│   ├── about_ui.py
-│   ├── theme.py                 # Light/Dark QSS stylesheets
-│   └── widgets.py                # Shared custom widgets (drop zone, gauge, stat card)
-├── algorithms/                  # Pure-Python DSA logic, no PyQt dependency
-│   ├── plagiarism.py             # File reading + comparison orchestration
-│   ├── similarity.py              # Jaccard, Cosine, Rabin-Karp, KMP
-│   ├── huffman.py                 # Huffman coding compress/decompress
-│   ├── duplicate_detector.py      # SHA-256 based duplicate detection
-│   ├── search_sort.py             # Merge sort, quick sort, linear/binary search
-│   └── pdf_export.py              # Generates PDF reports via reportlab
-├── models/                      # Data models + persistence
-│   ├── report.py                  # Report dataclass
-│   ├── history.py                  # HistoryManager + UndoStack + RecentActivityQueue
-│   └── file_info.py                # FileInfo dataclass for scanned files
-├── utils/
-│   └── paths.py                   # Shared project-relative path constants
-├── data/
-│   ├── history/history.json       # Persisted history (auto-created)
-│   └── reports/                   # Default folder offered when exporting PDFs
-└── assets/
-```
+- Arrays
+- Lists
+- Hash Tables
+- Sets
+- Stack
+- Queue
+- Heap
+- Binary Tree
+- Searching Algorithms
+- Sorting Algorithms
+- String Matching
+- Huffman Coding
+- Hashing
 
-## DSA Concepts Demonstrated (for viva reference)
+---
 
-| Concept | Where it's used |
-|---|---|
-| Arrays / Lists | Tokenized word lists, file scan results, history records |
-| Hash Tables (dict) | Term-frequency vectors, Huffman frequency table, duplicate hash buckets |
-| Sets | Jaccard similarity, common/unique keyword extraction |
-| Stacks | `UndoStack` in `models/history.py` — undo last delete |
-| Queues | `RecentActivityQueue` (bounded `collections.deque`) — Recent Activity panel |
-| Priority Queue (Heap) | `heapq` used to build the Huffman tree in `algorithms/huffman.py` |
-| Binary Trees | The Huffman coding tree (`HuffmanNode`) |
-| String Matching | Rabin-Karp (rolling hash) and KMP (prefix function), `algorithms/similarity.py` |
-| Searching | Linear search, binary search, fuzzy substring search, `algorithms/search_sort.py` |
-| Sorting | Merge sort and quick sort (custom implementations), same file |
+# 🎯 Learning Objectives
 
-## Notes
+This project demonstrates how Data Structures and Algorithms can be applied to solve practical software engineering problems rather than only textbook exercises.
 
-- All persistence is plain JSON (`data/history/history.json`) — no database required.
-- The Huffman `.huf` file format is custom and self-describing (stores its own frequency
-  table), so compressed files don't depend on any external metadata.
-- Every long-running operation (comparison, compression, directory scan) runs on a background
-  `QThread` so the UI never freezes.
-- Before submitting, update the "Developer Information" section in the About tab
-  (`ui/about_ui.py`) with your name, student ID, and course details.
+Key concepts include:
+
+- Efficient searching
+- Pattern matching
+- File compression
+- Hash-based duplicate detection
+- Tree-based encoding
+- Report generation
+- Persistent data management
+
+---
+
+# 👨‍💻 Developers
+
+- **Kazi Abu Jafar Anik** *(C251015)*
+- **Mashrafe Bin Hasnath** *(C251006)*
+- **Tanvir Rubayet** *(C251055)*
+
+---
+
+# 📄 License
+
+This project was developed for educational purposes as part of the **Data Structures & Algorithms** course.
+
+---
+
+<p align="center">
+⭐ If you found this project interesting, consider giving it a star!
+</p>
