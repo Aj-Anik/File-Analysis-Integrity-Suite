@@ -1,0 +1,64 @@
+[
+  {
+    "report_id": "7813a13905794811a174aad0da179d07",
+    "report_type": "duplicate",
+    "title": "Scan: D:/duplicate files",
+    "timestamp": "2026-06-24T02:17:37",
+    "summary": "0 duplicate groups, 0.0 B wasted",
+    "data": {
+      "root_dir": "D:/duplicate files",
+      "total_files_scanned": 1,
+      "duplicate_groups_count": 0,
+      "duplicate_files_count": 0,
+      "wasted_bytes": 0,
+      "wasted_human": "0.0 B",
+      "groups_preview": []
+    }
+  },
+  {
+    "report_id": "8b009908a1d14298850948fdfc0b33b1",
+    "report_type": "plagiarism",
+    "title": "Text A vs Text B",
+    "timestamp": "2026-07-09T15:44:46",
+    "summary": "67.5% similarity",
+    "data": {
+      "jaccard_score": 60.0,
+      "cosine_score": 75.0,
+      "overall_similarity_percent": 67.5,
+      "common_words": [
+        "am",
+        "anik",
+        "i"
+      ],
+      "unique_to_a": [
+        "hello"
+      ],
+      "unique_to_b": [
+        "hey"
+      ],
+      "matching_phrases": [],
+      "word_count_a": 4,
+      "word_count_b": 4,
+      "matching_word_count": 3,
+      "time_taken_seconds": 0.0,
+      "label_a": "Text A",
+      "label_b": "Text B"
+    }
+  },
+  {
+    "report_id": "8a3626f305e84b3592957f686fb4390d",
+    "report_type": "duplicate",
+    "title": "Scan: D:/duplicate files",
+    "timestamp": "2026-07-09T15:45:52",
+    "summary": "0 duplicate groups, 0.0 B wasted",
+    "data": {
+      "root_dir": "D:/duplicate files",
+      "total_files_scanned": 1,
+      "duplicate_groups_count": 0,
+      "duplicate_files_count": 0,
+      "wasted_bytes": 0,
+      "wasted_human": "0.0 B",
+      "groups_preview": []
+    }
+  }
+]
